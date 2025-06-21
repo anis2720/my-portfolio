@@ -7,8 +7,26 @@
               @click="showDetails(project)"
               class="project-item"
               :class="{ 'wide': project.isWide, 'high': project.isHigh }">
-            <div class="project-item-image" :style="{ 'background-image': 'url(' + project.iconUrl + ')' }">
-            </div>
+            <div class="project-item-image">
+  <!-- If the project show a video -->
+  <video
+    v-if="isVideo(project.iconUrl)"
+    :src="project.iconUrl"
+    autoplay
+    muted
+    loop
+    playsinline
+    class="thumbnail-video"
+  ></video>
+
+  <!-- Otherwise, show background image -->
+  <div
+    v-else
+    class="thumbnail-image"
+    :style="{ 'background-image': 'url(' + project.iconUrl + ')' }"
+  ></div>
+</div>
+
             <div class="title-bar" :style="{ 'background-color': project.accentColor + 'DD' }">
                 <div class="title-text">
                   {{ project.name }}
@@ -29,40 +47,50 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import ProjectDetailsOverlay from "@/components/ProjectDetailsOverlay.vue";
-import ProjectData from "@/data/ProjectData.ts";
+import Vue from 'vue';
+import ProjectData from '@/data/ProjectData';
+import ProjectDetailsOverlay from '@/components/ProjectDetailsOverlay.vue';
 
 export default Vue.extend({
-  name: "ProjectsList",
+  name: 'ProjectsList',
+
   components: {
-    ProjectDetailsOverlay,
+    ProjectDetailsOverlay
   },
+
   props: {
-    projects: Array
+    projects: {
+      type: Array,
+      required: true
+    }
   },
-  data: function () {
+
+  data() {
     return {
-      showPopup: false,
-      popupTitle: "",
-      popupColor: "",
-      popupContent: ""
+      popupTitle: '',
+      popupColor: '',
+      popupContent: '',
+      showPopup: false
     };
   },
+
   methods: {
-    showDetails: function (item: ProjectData) {
-      // if (event) {
-      //   alert(event.target);
-      // }
+    showDetails(item: ProjectData) {
       this.popupTitle = item.name;
       this.popupColor = item.accentColor;
       this.popupContent = item.htmlDescription;
       this.showPopup = true;
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     },
-  },
+
+    isVideo(url: string): boolean {
+      return url.endsWith('.mp4') || url.endsWith('.webm') || url.endsWith('.ogg');
+    }
+  }
 });
 </script>
+
+
 
 <style scoped>
 
@@ -126,6 +154,23 @@ filter: brightness(120%);
   }
 }
 
+.thumbnail-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.2s;
+}
+
+.thumbnail-image:hover,
+.thumbnail-video:hover {
+  transform: scale(1.1);
+}
 
 </style>
