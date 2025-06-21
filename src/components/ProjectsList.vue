@@ -8,6 +8,24 @@
               class="project-item"
               :class="{ 'wide': project.isWide, 'high': project.isHigh }">
             <div class="project-item-image" :style="{ 'background-image': 'url(' + project.iconUrl + ')' }">
+            <!-- If the project show a video -->
+            <video
+              v-if="isVideo(project.iconUrl)"
+              :src="project.iconUrl"
+              autoplay
+              muted
+              loop
+              playsinline
+              class="thumbnail-video"
+            ></video>
+
+            <!-- Otherwise, show background image -->
+            <div
+              v-else
+              class="thumbnail-image"
+              :style="{ 'background-image': 'url(' + project.iconUrl + ')' }"
+            ></div>
+
             </div>
             <div class="title-bar" :style="{ 'background-color': project.accentColor + 'DD' }">
                 <div class="title-text">
