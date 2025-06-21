@@ -7,7 +7,7 @@
               @click="showDetails(project)"
               class="project-item"
               :class="{ 'wide': project.isWide, 'high': project.isHigh }">
-            <div class="project-item-image" :style="{ 'background-image': 'url(' + project.iconUrl + ')' }">
+            <div class="project-item-image">
             <!-- If the project show a video -->
             <video
               v-if="isVideo(project.iconUrl)"
