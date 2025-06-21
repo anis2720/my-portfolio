@@ -1,8 +1,9 @@
 <template>
     <div>
       <div class="projects-list">
-        <template v-for="project in projects">
+        <template >
           <div
+          v-for="project in projects"
             :key="project.id"
               @click="showDetails(project)"
               class="project-item"
@@ -16,6 +17,7 @@
     muted
     loop
     playsinline
+    preload="auto"
     class="thumbnail-video"
   ></video>
 
@@ -89,8 +91,6 @@ export default Vue.extend({
   }
 });
 </script>
-
-
 
 <style scoped>
 
