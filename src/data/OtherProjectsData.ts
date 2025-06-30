@@ -59,15 +59,15 @@ export default [
             </div>`, "#A9D6A4"),
 
     // Make yourself EPIC MYE
-    new ProjectData("project-8", "Yourself", "img/MYE/2.png", `
+    new ProjectData("project-8", "Arduino", "img/Arduino/setup.jpeg", `
     <div class="paragraph">
-                <strong>Yourself</strong> is a short video project designed to practice various cinematic shooting techniques—including different shot types and camera movements. The goal is to highlight a talent or personal expression while helping you become more comfortable in front of the camera.
-                <br><br>
-                <strong>Make Yourself EPIC</strong>            
+                <strong>Cars</strong> are essential but can pollute the air inside. The air filter traps pollutants, but it can get clogged over time. This research creates an Arduino device to monitor the filter in real time. It checks air flow and temperature to see when the filter needs cleaning. Regular monitoring keeps the air clean and the car system efficient.<br><br>
+                 
+                <strong>Measure air flow and temperature</strong>            
                 </div>
 
             <div class="paragraph center">
-        <iframe class="youtube" src="https://www.youtube.com/embed/BrqLpRjNpKA" frameborder="0" allowfullscreen></iframe>
+        <iframe class="youtube" src="https://youtube.com/shorts/embed/xw3nCIMZ9Nc" frameborder="0" allowfullscreen></iframe>
       </div>
 
           <div class="paragraph">
@@ -80,11 +80,11 @@ export default [
       </div>
 
             <div class="paragraph center">
-                <img class="phone-screenshot" src="img/MYE/1.png" />
-                <img class="phone-screenshot" src="img/MYE/2.png" />
-                <img class="phone-screenshot" src="img/MYE/3.png" />
-                <img class="phone-screenshot" src="img/MYE/4.png" />
-                <img class="phone-screenshot" src="img/MYE/5.png" >
+                <img class="phone-screenshot" src="img/Arduino/setup.jpeg" />
+                <img class="phone-screenshot" src="img/Arduino/1.jpeg" />
+                <img class="phone-screenshot" src="img/Arduino/2.jpeg" />
+                <img class="phone-screenshot" src="img/Arduino/3.jpeg" />
+                <img class="phone-screenshot" src="img/Arduino/4.jpeg" >
             </div>`, "#7FBDE8"),
 
             //Rigibody and Softbody
